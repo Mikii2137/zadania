@@ -12,6 +12,7 @@ public class zadanie1 {
             System.out.println("3. Obliczanie BMI");
             System.out.println("4. Obliczanie podatku dochodowego");
             System.out.println("5. Obliczanie raty za sprzęt AGD");
+            System.out.println("6. Kalkulator");
             System.out.println("0. Wyjście");
             System.out.print("Wybierz opcję: ");
             wybor = scanner.nextInt();
@@ -22,6 +23,7 @@ public class zadanie1 {
                 case 3 -> obliczBMI(scanner);
                 case 4 -> obliczPodatek(scanner);
                 case 5 -> obliczRatyAGD(scanner);
+                case 6 -> kalkulator(scanner);
                 case 0 -> System.out.println("Zakończono program.");
                 default -> System.out.println("Nieprawidłowy wybór.");
             }
@@ -115,4 +117,59 @@ public class zadanie1 {
 
         System.out.printf("Miesięczna rata wynosi: %.2f zł\n", rataMiesieczna);
     }
+
+    static void kalkulator(Scanner scanner) {
+
+            System.out.println("=== PROSTY KALKULATOR ===");
+            System.out.println("Dostępne operacje: +  -  *  /");
+
+            System.out.print("Podaj pierwszą liczbę: ");
+            double liczba1 = scanner.nextDouble();
+
+            System.out.print("Podaj symbol operacji (+, -, *, /): ");
+            char operacja = scanner.next().charAt(0);
+
+            System.out.print("Podaj drugą liczbę: ");
+            double liczba2 = scanner.nextDouble();
+
+            double wynik;
+            boolean poprawnaOperacja = true;
+
+            switch (operacja) {
+                case '+':
+                    wynik = liczba1 + liczba2;
+                    System.out.printf("Wynik: %.2f\n", wynik);
+                    break;
+                case '-':
+                    wynik = liczba1 - liczba2;
+                    System.out.printf("Wynik: %.2f\n", wynik);
+                    break;
+                case '*':
+                    wynik = liczba1 * liczba2;
+                    System.out.printf("Wynik: %.2f\n", wynik);
+                    break;
+                case '/':
+                    if (liczba2 == 0) {
+                        System.out.println("Błąd: Nie można dzielić przez zero.");
+                    } else {
+                        wynik = liczba1 / liczba2;
+                        System.out.printf("Wynik: %.2f\n", wynik);
+                    }
+                    break;
+                default:
+                    System.out.println("Błąd: Nieznany symbol operacji.");
+                    poprawnaOperacja = false;
+            }
+
+            if (poprawnaOperacja) {
+                System.out.println("Dziękujemy za skorzystanie z kalkulatora.");
+            }
+
+            System.out.println("Naciśnij Enter, aby zakończyć...");
+            try {
+                System.in.read();
+            } catch (Exception e) {
+            }
+        }
+
 }
