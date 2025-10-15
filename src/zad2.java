@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class zadanie2 {
+public class zad2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int wybor;
